@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="train.css">
+    <link href="https://fonts.googleapis.com/css?family=Yeseva+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quantico|VT323" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+    <title>Choo Choo Train</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="container">
+        <div class="row">
+            <div id="depart" class="col-sm-11 col-md-11 col-lg-11">
+                <p>Departures</p>
+            </div>
+        </div>
+        <!-- end header -->
+        <!-- train times -->
+        <div class="row">
+            <div class="col-sm-11 col-md-11 col-lg-11">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Train Name</th>
+                            <th>Destination</th>
+                            <th>Frequency(min)</th>
+                            <th>Next Arrival</th>
+                            <th>Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="tn"></td>
+                            <td id="d"></td>
+                            <td id="ft"></td>
+                            <td id="na"></td>
+                            <td id="ma"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- train times -->
+    <!-- form -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-11 col-md-11 col-lg-11">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Train Name</label>
+                    <div class="col-sm-10">
+                        <input type="name" class="form-control" id="trainname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputText" class="col-sm-2 control-label">destination</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="destination">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstTrain" class="col-sm-2 control-label">First Train</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="firstTrain">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputFrequency" class="col-sm-2 control-label">Frequency</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="inputFrequency">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button id="submitButton" type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <!-- end form -->
+    <script type="text/javascript" src="train.js"></script>
+</body>
+
+</html>

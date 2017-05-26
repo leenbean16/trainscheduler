@@ -1,0 +1,126 @@
+body {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 20px;
+    color: #ffe100;
+    background: #75766a;
+}
+
+div {
+    color: #ffe100;
+}
+
+.container {
+    margin-top: 25px;
+    border: 3px solid black;
+    background: #24220E;
+}
+
+.table {
+    border: none;
+}
+
+.btn-default {
+    border-radius: 0px;
+    color: #ffe100;
+    background: #24220E;
+}
+
+#header {
+    background: #24220E;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    color: #ffffff;
+    height: 30px;
+}
+
+.panel.panel-default {
+    border: 0px;
+    background: #24220E;
+    text-align: center;
+}
+
+#pbhead {
+    margin-left: 46px;
+    margin-right: 55px;
+    text-align: center;
+}
+
+#pbody {
+    margin-left: 46px;
+    margin-right: 55px;
+}
+
+.panel-default>.panel-heading {
+    color: #ffe100;
+    background-color: #3D3916;
+    border-color: #24220E;
+    padding: 0px;
+}
+
+.panel-body {
+    color: #ffe100;
+    background-color: #3D3916;
+    border-color: #24220E;
+    margin-top: 5px;
+    padding: 0px;
+}
+
+
+
+.panel.panel-default {
+    border: 0px;
+}
+
+.table {
+    border: none;
+}
+
+.table thead > tr > th {
+    border-bottom: none;
+}
+
+.table thead > tr > th,
+.table tbody > tr > th,
+.table tfoot > tr > th,
+.table thead > tr > td,
+.table tbody > tr > td,
+.table tfoot > tr > td {
+    border: none;
+}
+
+
+div.panel-heading {
+    color: #ffe100;
+}
+
+p {
+    font-size: 20px;
+    color: #ffe100;
+    margin-top: 20px;
+    text-align: center;
+    background-image: url('trainboard.jpg');
+}
+
+td {
+    background-image: url('trainboard.jpg');
+    margin-top: 10px;
+    border: none;
+}
+
+th {
+    background-image: url('trainboard.jpg');
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: none;
+}
+
+p#startdateinput,
+p#monthsworkedinput,
+p#monthlyrateinput,
+p#totalbilledinput {
+    padding: 0px;
+}
+
+form{
+    padding-top:20px;
+}
