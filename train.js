@@ -14,25 +14,24 @@ firebase.initializeApp(config);
 var now = moment();
 var database = firebase.database();
 var train = database.ref("/train");
-var trainList = database.ref("/trainList");
 
 $("#submitButton").on("click", function(event) {
     event.preventDefault();
     var trainName = $("#trainname").val().trim().toLowerCase();
     var destination = $("#destination").val().trim();
     var frequency = $("#inputFrequency").val();
-    var firstTrain = $("#firstTrain").val();
+    var firstTrain = moment($("#firstTrain").val().trim(), "HH:mm").format("HH:mm");
     var exists = true;
     $("#trainname").val("")
     $("#destination").val("")
     $("#inputFrequency").val("")
     $("#firstTrain").val("")
 
-    
+
     var a = moment(firstTrain);
     var b = moment(frequency);
     console.log(a.from(b));
-    
+
     var newTrain = {
         trainName: trainName,
         destination: destination,
@@ -47,14 +46,16 @@ train.on("child_added", function(snapshot) {
     var trainName = snapshot.val().trainName;
     var destination = snapshot.val().destination;
     var firstTrain = snapshot.val().firstTrain;
-    var frequency = snapshot.val().frequency
+    var frequency = snapshot.val().frequency;
+    var nextTrain = snapshot.val().nextTrain;
     var row = $('<tr>');
     var dataarea = $('<td>').text(trainName);
     var dataareab = $('<td>').text(destination);
     var dataaread = $('<td>').text(frequency);
     var dataareac = $('<td>').text(firstTrain);
+    var mins = $('<td>').text(firstTrain);
     var body = $('tbody');
-    
+
     var trainStartCnvrtd = moment(trainStartCnvrtd, "HH:mm").subtract(1, "years");
     var now = moment()
     var minutesAway = frequency - ((now.diff(trainStartCnvrtd, "minutes")) % frequency)
