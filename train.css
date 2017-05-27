@@ -1,16 +1,18 @@
 body {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 20px;
-    color: #ffe100;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    color: #ff4300;
     background: #75766a;
+    font-weight: normal;
+    text-align: center;
 }
 
 div {
-    color: #ffe100;
+    color: #ff4300;
 }
 
 .container {
-    margin-top: 25px;
+    margin-top: 15px;
     border: 3px solid black;
     background: #24220E;
 }
@@ -21,16 +23,18 @@ div {
 
 .btn-default {
     border-radius: 0px;
-    color: #ffe100;
+    color: #ff4300;
     background: #24220E;
 }
 
 #header {
     background: #24220E;
     text-align: center;
-    font-family: 'Share Tech Mono', monospace;
-    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    color: #ff4300;
+    font-size: 25px;
     height: 30px;
+    font-weight: normal;
 }
 
 .panel.panel-default {
@@ -51,32 +55,22 @@ div {
 }
 
 .panel-default>.panel-heading {
-    color: #ffe100;
+    color: #ff4300;
     background-color: #3D3916;
     border-color: #24220E;
     padding: 0px;
 }
 
 .panel-body {
-    color: #ffe100;
+    color: #ff4300;
     background-color: #3D3916;
     border-color: #24220E;
     margin-top: 5px;
     padding: 0px;
 }
 
-
-
 .panel.panel-default {
     border: 0px;
-}
-
-.table {
-    border: none;
-}
-
-.table thead > tr > th {
-    border-bottom: none;
 }
 
 .table thead > tr > th,
@@ -85,9 +79,8 @@ div {
 .table thead > tr > td,
 .table tbody > tr > td,
 .table tfoot > tr > td {
-    border: none;
+    border: 10px solid #24220E;
 }
-
 
 div.panel-heading {
     color: #ffe100;
@@ -95,8 +88,10 @@ div.panel-heading {
 
 p {
     font-size: 20px;
-    color: #ffe100;
+    color: #ff4300;
     margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
     background-image: url('trainboard.jpg');
 }
@@ -105,6 +100,9 @@ td {
     background-image: url('trainboard.jpg');
     margin-top: 10px;
     border: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 th {
@@ -121,6 +119,11 @@ p#totalbilledinput {
     padding: 0px;
 }
 
-form{
-    padding-top:20px;
+form {
+    padding-top: 20px;
+}
+
+.form-control{
+    background: #8e887f;
+    border-radius: 0px;
 }
