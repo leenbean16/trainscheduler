@@ -55,7 +55,7 @@ train.on("child_added", function(snapshot) {
     var dataareac = $('<td>').text(firstTrain);
     var body = $('tbody');
     
-    var trainStartCnvrtd = moment(trainStart, "HH:mm").subtract(1, "years");
+    var trainStartCnvrtd = moment(trainStartCnvrtd, "HH:mm").subtract(1, "years");
     var now = moment()
     var minutesAway = frequency - ((now.diff(trainStartCnvrtd, "minutes")) % frequency)
     console.log(minutesAway);
