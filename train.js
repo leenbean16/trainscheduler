@@ -27,12 +27,6 @@ $(document).ready(function(){
     setInterval(updateNextTrain, 600000);//600000);
 });
 
-// there is a day start and a day end.
-// minutes away update every 10 minutes.
-// count number of trains
-
-
-
 var updateTime = function () {
     date = moment(new Date());
     datetime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
@@ -50,13 +44,13 @@ function updateNextTrain(){
         var curr = moment().local().unix();
         var nxt = 0;
         for(var i=0;i<times.length;i++){
-            console.log("ITT: " + times[i] + " compared to " + curr);
+            //console.log("ITT: " + times[i] + " compared to " + curr);
             if(times[i] > curr){nxt = moment(times[i]*1000).local(); break;}
         }
         if(nxt == 0){
             nxt = moment(times[0]).local().add(1, 'days');
         }
-
+        //console.log("NEXT TIME: " + nxt.format("LLL"));
         var now = moment().local();
         var diff = nxt.diff(now, 'minutes');
         $(this).find(".nextarrival").text(nxt.format('kk:mm'));
@@ -66,7 +60,7 @@ function updateNextTrain(){
 
 function getTimeTable(elem, setTime, duration, tc){
     var d = parseInt(duration, 10);
-
+    //console.log("Duration: " + d);
     var duration = moment.duration({'minutes' : d});
     var res = setTime.split(":");
     var hour = 0;
@@ -97,7 +91,7 @@ function getTimeTable(elem, setTime, duration, tc){
         timesTable.push(dayStart.unix());
         //i++;
     }
-
+    console.log(timesTable);
     timesTables.push(timesTable);
 }
 
@@ -107,20 +101,21 @@ $("#submitButton").on("click", function(event) {
     var destination = $("#destination").val().trim();
     var frequency = $("#inputFrequency").val();
     var firstTrain = moment($("#firstTrain").val().trim(), "HH:mm").format("HH:mm");
-    var nextTrain = $('#nextarrival').val();
     var exists = true;
     $("#trainname").val("")
     $("#destination").val("")
     $("#inputFrequency").val("")
     $("#firstTrain").val("")
-    $('#nextarrival').val("");
+    
+    //var a = moment(firstTrain);
+    //var b = moment(frequency);
+    //console.log(a.from(b));
 
     var newTrain = {
         trainName: trainName,
         destination: destination,
         frequency: frequency,
         firstTrain: firstTrain,
-        nextTrain: nextTrain,
     }
 
     train.push().set(newTrain);
@@ -141,7 +136,13 @@ train.on("child_added", function(snapshot) {
     var mins = $('<td class="minstillarrive">').text("");
     var body = $('tbody');
 
-    console.log("CHILD ADDED:", snapshot.val().trainName, destination, firstTrain, nextTrain);
+    /*var trainStartCnvrtd = moment(trainStartCnvrtd, "HH:mm").subtract(1, "years");
+    var now = moment()
+    var minutesAway = frequency - ((now.diff(trainStartCnvrtd, "minutes")) % frequency)
+    console.log(minutesAway);
+    var trainArrival = moment().add(minutesAway, "minutes").format("HH:mm");*/
+
+    console.log("CHILD ADDED:", snapshot.val().trainName, destination, firstTrain);
     
     row.append(dataarea);
     row.append(dataareab);
