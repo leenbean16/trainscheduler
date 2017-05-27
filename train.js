@@ -14,7 +14,6 @@ firebase.initializeApp(config);
 var now = moment();
 var database = firebase.database();
 var train = database.ref("/train");
-var trainList = database.ref("/trainList");
 
 $("#submitButton").on("click", function(event) {
     event.preventDefault();
@@ -57,11 +56,12 @@ train.on("child_added", function(snapshot) {
     var mins = $('<td>').text(firstTrain);
     var body = $('tbody');
 
-    var trainStartCnvrtd = moment(trainStart, "HH:mm").subtract(1, "years");
+    var trainStartCnvrtd = moment(trainStartCnvrtd, "HH:mm").subtract(1, "years");
     var now = moment()
     var minutesAway = frequency - ((now.diff(trainStartCnvrtd, "minutes")) % frequency)
     console.log(minutesAway);
     var trainArrival = moment().add(minutesAway, "minutes").format("HH:mm");
+
 
     console.log("CHILD ADDED:", snapshot.val().trainName, destination, firstTrain, frequency);
 
