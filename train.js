@@ -28,6 +28,11 @@ $("#submitButton").on("click", function(event) {
     $("#inputFrequency").val("")
     $("#firstTrain").val("")
 
+    
+    var a = moment(firstTrain);
+    var b = moment(frequency);
+    console.log(a.from(b));
+    
     var newTrain = {
         trainName: trainName,
         destination: destination,
@@ -49,6 +54,13 @@ train.on("child_added", function(snapshot) {
     var dataaread = $('<td>').text(frequency);
     var dataareac = $('<td>').text(firstTrain);
     var body = $('tbody');
+    
+    var trainStartCnvrtd = moment(trainStart, "HH:mm").subtract(1, "years");
+    var now = moment()
+    var minutesAway = frequency - ((now.diff(trainStartCnvrtd, "minutes")) % frequency)
+    console.log(minutesAway);
+    var trainArrival = moment().add(minutesAway, "minutes").format("HH:mm");
+
 
     console.log("CHILD ADDED:", snapshot.val().trainName, destination, firstTrain, frequency);
 
