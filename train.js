@@ -19,17 +19,23 @@ var database = firebase.database();
 var train = database.ref("/train");
 var timesTables = [];
 var trainCount = 0;
+var nextTimeCheck = 0;
 
 $(document).ready(function(){
     datetime = $("#rightnow");
     updateTime();
     setInterval(updateTime, 1000);
-    setInterval(updateNextTrain, 600000);//600000);
+    //setInterval(updateNextTrain, 3000);//600000);
 });
 
 var updateTime = function () {
     date = moment(new Date());
     datetime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
+    if(nextTimeCheck != 0){
+        if(date.isSameOrAfter(nextTimeCheck)){
+            updateNextTrain();
+        }
+    }
 };
 
 function updateNextTrain(){
@@ -52,6 +58,11 @@ function updateNextTrain(){
         }
         //console.log("NEXT TIME: " + nxt.format("LLL"));
         var now = moment().local();
+        
+        if(nextTimeCheck == 0){nextTimeCheck = nxt;}
+        else if(nxt.isSameOrBefore(nextTimeCheck)){
+            nextTimeCheck = nxt;
+        }
         var diff = nxt.diff(now, 'minutes');
         $(this).find(".nextarrival").text(nxt.format('kk:mm'));
         $(this).find(".minstillarrive").text(diff);
